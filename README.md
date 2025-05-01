@@ -8,7 +8,7 @@ Features
 
     Search for cities and view their weather.
 
-    Displays weather conditions like "Sunny" or "Cloudy."
+    Displays weather conditions like "Sunny" or "Cloudy".
 
 Technologies
 
