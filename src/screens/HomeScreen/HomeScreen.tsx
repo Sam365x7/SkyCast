@@ -23,7 +23,7 @@ const HomeScreen: React.FC = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const cloudStatus =
     weather.clouds != null ? (weather.clouds > 10 ? 'Cloudy' : 'Sunny') : '—';
-  console.log('weather error', weather.error);
+
   useEffect(() => {
     if (weather.error) {
       Toast.show({

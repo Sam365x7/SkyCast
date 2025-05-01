@@ -23,7 +23,6 @@ export const fetchGeoData = async (city: string) => {
 
     return response.data[0];
   } catch (error) {
-    console.log('fetchGeoData', error);
     throw new Error('Please enter valid city');
   }
 };
@@ -41,7 +40,6 @@ export const fetchWeatherData = async (lat: number, lon: number) => {
 
     return response.data;
   } catch (error) {
-    console.log('fetchWeatherData', error);
     throw new Error('Something went wrong');
   }
 };
@@ -54,7 +52,6 @@ export const getWeatherData = async (city: string) => {
     const weatherData = await fetchWeatherData(lat, lon);
     return weatherData;
   } catch (error) {
-    console.log('getWeatherData', error);
     throw new Error('Please enter valid city');
   }
 };
