@@ -1,6 +1,7 @@
 SkyCast
 
 SkyCast is a weather forecasting app built with React Native that lets you check the weather for any city around the world.
+
 Features
 
     View current weather for any city.
