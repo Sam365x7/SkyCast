@@ -8,14 +8,13 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
     color: 'black',
-    marginBottom: 6,
   },
   temp: {
     fontSize: 46,
     color: 'black',
     fontWeight: '600',
     alignSelf: 'center',
-    marginTop: 40,
+    marginTop: 30,
   },
   iconBox: {
     backgroundColor: '#6699cc',
@@ -45,6 +44,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  parentView: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
 
