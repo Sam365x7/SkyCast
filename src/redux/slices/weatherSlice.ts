@@ -51,7 +51,6 @@ export const fetchWeather = (city: string) => async (dispatch: any) => {
 
   try {
     const weatherData = await getWeatherData(city);
-    console.log('weatherdata', weatherData);
     dispatch(
       fetchWeatherSuccess({
         name: weatherData.name,

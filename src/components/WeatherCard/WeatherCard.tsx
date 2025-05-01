@@ -16,7 +16,6 @@ const WeatherCard: React.FC<WeatherCardProps> = ({weatherDetails}) => {
   const iconName = cloudStatus === 'Cloudy' ? 'cloud' : 'sun';
   const locationIconName = 'location-pin';
 
-  console.log(weatherDetails);
   return (
     <View style={styles.card}>
       {weatherDetails.name !== null ? (
