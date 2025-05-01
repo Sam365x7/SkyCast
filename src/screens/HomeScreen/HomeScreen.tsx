@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   ImageBackground,
   ScrollView,
@@ -7,12 +7,14 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import Toast from 'react-native-toast-message';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchWeather} from '../../redux/slices/weatherSlice';
 import CityInput from '../../components/CityInput/CityInput';
 import WeatherCard from '../../components/WeatherCard/WeatherCard';
 import styles from './HomeScreen.styles';
 import {RootState, AppDispatch} from '../../redux/store';
+
 const HomeScreen: React.FC = () => {
   const [city, setCity] = useState('');
   const dispatch = useDispatch<AppDispatch>();
@@ -21,7 +23,16 @@ const HomeScreen: React.FC = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const cloudStatus =
     weather.clouds != null ? (weather.clouds > 10 ? 'Cloudy' : 'Sunny') : '—';
-
+  console.log('weather error', weather.error);
+  useEffect(() => {
+    if (weather.error) {
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: weather.error,
+      });
+    }
+  }, [weather.error]);
   const backgroundImage =
     cloudStatus === 'Cloudy'
       ? require('../../assets/cloudy.jpg')

@@ -7,7 +7,6 @@ const axiosInstance = axios.create({
   timeout: 10000,
 });
 
-// Geocoding API call to get lat/lon based on city name
 export const fetchGeoData = async (city: string) => {
   try {
     const response = await axiosInstance.get(GEO_API_URL, {
@@ -19,17 +18,16 @@ export const fetchGeoData = async (city: string) => {
     });
 
     if (!response.data.length) {
-      throw new Error('City not found');
+      throw new Error('Please enter valid city');
     }
 
-    return response.data[0]; // Return the first result
+    return response.data[0];
   } catch (error) {
-    console.error('Error fetching geocoding data:', error);
-    throw error; // Propagate the error
+    console.log('fetchGeoData', error);
+    throw new Error('Please enter valid city');
   }
 };
 
-// Weather API call to get weather data based on lat/lon
 export const fetchWeatherData = async (lat: number, lon: number) => {
   try {
     const response = await axiosInstance.get(WEATHER_API_URL, {
@@ -37,18 +35,17 @@ export const fetchWeatherData = async (lat: number, lon: number) => {
         lat,
         lon,
         appid: OPEN_WEATHER_KEY,
-        units: 'metric', // Convert temperature to Celsius
+        units: 'metric',
       },
     });
 
     return response.data;
   } catch (error) {
-    console.error('Error fetching weather data:', error);
-    throw error; // Propagate the error
+    console.log('fetchWeatherData', error);
+    throw new Error('Something went wrong');
   }
 };
 
-// Centralized method to get both geocoding and weather data
 export const getWeatherData = async (city: string) => {
   try {
     const geoData = await fetchGeoData(city);
@@ -57,7 +54,7 @@ export const getWeatherData = async (city: string) => {
     const weatherData = await fetchWeatherData(lat, lon);
     return weatherData;
   } catch (error) {
-    console.error('Error fetching weather data:', error);
-    throw error;
+    console.log('getWeatherData', error);
+    throw new Error('Please enter valid city');
   }
 };

@@ -1,5 +1,5 @@
 export interface WeatherIconProps {
-  type: 'Feather' | 'Entypo'; // Specify the icon type to use
+  type: 'Feather' | 'Entypo';
   name: string;
   size: number;
   color: string;
