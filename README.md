@@ -14,7 +14,7 @@ Technologies
 
     React Native for building the app.
 
-    Redux for state management.
+    Redux for state management adding a loader and toast message easier to handle and persist the weather data.
 
     Axios for making API requests.
 
@@ -28,3 +28,5 @@ Setup
     Run the app on an emulator or device:
         For Android: npx react-native run-android
         For iOS: npx react-native run-ios
+
+    Note: This project has an env so if you are using an env file make sure you have OPEN_WEATHER_KEY of your own for fetching the weather data.
